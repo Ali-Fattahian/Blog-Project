@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% load static %}
+ {% block title %}
+ Welcome | HomePage
+ {% endblock %}
+
+{% block css %}
+<link rel = 'stylesheet' href = '{% static 'blog/index.css'%}'>
+{% endblock %}
+ {% block content %}
+    <header id = 'main-navigation'>
+    <h1><a href="">Ali' Blog</a></h1>
+    {% comment %} <h1><a href = '{% url homepage %}'>Ali's Blog</a></h1> {% endcomment %}
+        <nav>
+        {% comment %} <a href = '{% url posts %}'>All Posts</a> {% endcomment %}
+        <a href="#">All Posts</a>
+        </nav>
+    </header>
+    <section id = 'welcome'>
+    <header>
+    <img src = '' alt = 'Ali - The Author Of This BLog'>
+    <h2>Ali' Blog</h2>
+    </header>
+    <p>some bullshit</P>
+    </section>
+
+    <section id= 'latest-posts'>
+    <h2>My Latest Thoughts</h2>
+    <ul>
+    <li>
+    <article class = 'post'>
+    <a href = ''>
+    <img src = '' alt = 'mountain Hiking'>
+    <div class = 'post_content'>
+    <h3>Mountain Hiking</h3>
+    <p>some bullshit</p>
+    </div>
+    </a>
+    </article>
+    </li>
+    </ul>
+    </section>
+
+    <section id = 'about'>
+    <h2> What I Do</h2>
+    <p>
+    some bullshit
+    </p>
+    <p>
+    another bullshit
+    </p>
+    </section>
+
+    {% endblock %}
