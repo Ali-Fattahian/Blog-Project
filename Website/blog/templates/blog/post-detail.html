@@ -13,9 +13,14 @@
 {% block content %}
     <section id  = 'summary'>
         <h2>{{ one_post.title }}</h2>
+        <div>
+            {% for tag in post_tags %}
+                <span class = 'tag'> {{ tag.caption }} </span>
+            {% endfor %}
+        </div>
         <article>
-            <img src ='{% static 'blog/images/'|add:one_post.image %}' alt = '{{ one_post.title }}'> <!--add filter(after the quotations) will add the value of the key 'image' after the slash-->
-            <address>By {{ one_post.author }}</address>
+            <img src ='{% static 'blog/images/'|add:one_post.image_name %}' alt = '{{ one_post.title }}'> <!--add filter(after the quotations) will add the value of the key 'image' after the slash-->
+            <address>By <a href = 'mailto:{{post.author.email_address}}'>{{ one_post.author }}</a></address>
             <div>Last Updated on <time>{{ one_post.date|date:'d M Y'}}</time></div> <!-- one of the several ways of foramting the date-->
         </article>
     </section>
