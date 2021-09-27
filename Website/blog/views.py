@@ -1,6 +1,10 @@
-from django.shortcuts import render, get_object_or_404
-from .models import Post
-from django.views.generic import TemplateView, ListView, DetailView
+from django.shortcuts import redirect, render, get_object_or_404
+from .models import  Post
+from .forms import CommentForm
+from django.views.generic import TemplateView, ListView
+from django.views import View
+from django.urls import reverse
+from django.http import HttpResponseRedirect
 
 
 def get_date(post):
@@ -77,13 +81,30 @@ class AllPostsView(ListView): #Max Approach - this one is better for all of post
 #         'post_tags':identified_post.tag.all()
 #     })
 
-class PostDetailView(DetailView):
-    template_name = 'blog/post-detail.html'
-    model = Post
-    
+class PostDetailView(View):
 
-    def get_context_data(self, **kwargs):
-        context =  super().get_context_data(**kwargs)
-        context['one_post'] = self.object
-        context['post_tags'] = self.object.tag.all()
-        return context
+    def get(self, request, slug):
+        post = get_object_or_404(Post, slug = slug)
+        context = {
+            'one_post':post,
+            'post_tags':post.tag.all(),
+            'form':CommentForm()
+        }
+        return render(request, 'blog/post-detail.html', context)
+
+    def post(self, request, slug):
+        post = get_object_or_404(Post, slug = slug)
+        form = CommentForm(request.POST)
+        if form.is_valid():
+            comment = form.save(commit=False)
+            comment.post = post
+            comment.save()
+            return HttpResponseRedirect(reverse('post', args=[slug]))
+        else:
+            context = {
+            'one_post':post,
+            'post_tags':post.tag.all(),
+            'form':form
+            }
+            return render(request, 'blog/post-detail.html', context)
+    

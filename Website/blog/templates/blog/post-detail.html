@@ -24,7 +24,29 @@
             <div>Last Updated on <time>{{ one_post.date|date:'d M Y'}}</time></div> <!-- one of the several ways of foramting the date-->
         </article>
     </section>
+
+    {% if form.errors %}
+        <div id = "alert">
+            <h2>Saving The Comment Failed!</h2>
+            <p>Please Check the comment form below the form and fix your errors.</p>
+            <a href="#comment-form">Fix!</a>
+        </div>
+    {% endif %}
     <main>
         {{ one_post.content|linebreaks }} <!--we can use the value of the key content from one_post variable that we passed via context of the function related to this template-->
     </main>                     <!--in the above line, all the linebreaks were removed(default behavior), so we can use linebreak filter to add them again-->
+    <section id = "comment-form">
+        <h2>Your Comment</h2>
+        <form action="{% url 'post' one_post.slug %}" method = "post">
+            {% csrf_token %}
+            {% for field in form %}
+            <div class="form-control {% if field.errors %}invalid{% endif %}">
+                {{ field.label }}
+                {{ field }}
+                {{ field.errors }}
+            </div>
+            {% endfor %}
+            <button type="submit">Send</button>
+        </form>
+    </section>
 {% endblock %}
