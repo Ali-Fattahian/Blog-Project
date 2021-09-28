@@ -18,6 +18,19 @@
                 <span class = 'tag'> {{ tag.caption }} </span>
             {% endfor %}
         </div>
+        <div id="read-later">
+            <form action="{% url "read-later" %}" method="post">
+            {% csrf_token %}
+                <input type="hidden" value="{{ one_post.id }}" name="post_id">
+                <button>
+                    {% if saved_for_later %}
+                    Remove from "Read Later" List
+                    {% else %}
+                    Read Later
+                    {% endif %}
+                </button>
+            </form>
+        </div>
         <article>
             <img src = "{{ one_post.image.url }}" alt = '{{ one_post.title }}'> <!--add filter(after the quotations) will add the value of the key 'image' after the slash-->
             <address>By <a href = 'mailto:{{post.author.email_address}}'>{{ one_post.author }}</a></address>
@@ -35,6 +48,20 @@
     <main>
         {{ one_post.content|linebreaks }} <!--we can use the value of the key content from one_post variable that we passed via context of the function related to this template-->
     </main>                     <!--in the above line, all the linebreaks were removed(default behavior), so we can use linebreak filter to add them again-->
+    <section id = "comments">
+        <ul>
+            {% for comment in comments %}
+                <li>
+                    <h2>
+                        {{ comment.username }}
+                    </h2>
+                    <p>
+                        {{ comment.comment_content|linebreaks }}
+                    </p>
+                </li>
+            {% endfor %}
+        </ul>
+    </section>
     <section id = "comment-form">
         <h2>Your Comment</h2>
         <form action="{% url 'post' one_post.slug %}" method = "post">
