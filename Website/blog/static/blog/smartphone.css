@@ -1,0 +1,101 @@
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+#main-navigation {
+    display: flex;
+    padding: 3%;
+    text-align: center;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#main-navigation h1 {
+    font-size: 1rem;
+    padding: 0;
+    margin: 0 1rem;
+    margin-bottom: 0.25rem;
+    font-weight: bold;
+}
+
+#main-navigation nav {
+    display: flex;
+    justify-content: space-evenly;
+    flex: 2;
+}
+
+#main-navigation a {
+    margin: 0;
+}
+
+#summary {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem 2rem;
+    height: 30rem;
+}
+
+#summary h2 {
+    font-size: 1.8rem;
+    text-align: center;
+    margin-right: 0.5rem;
+    width: 0.9;
+}
+
+.tag {
+    margin-left: 2.2rem;
+}
+
+#summary article img {
+    height: 12rem;
+    width: 12rem;
+    border: none;
+    padding: 0;
+    margin: 0;
+    transform: rotate(0);
+    margin-top: 6rem;
+    margin-left: 1.5rem;
+    border-radius: 50%;
+}
+
+#summary address {
+    margin-top: 25%;
+    text-align: right;
+}
+
+#read-later {
+    text-align: center;
+    margin-top: 142%;
+}
+
+#read-later button {
+    background-color: #390281;
+}
+
+main {
+    margin-top: 5rem;
+}
+
+#latest-posts {
+    margin-top: 5rem;
+    width: 80%;
+}
+
+#latest-posts h2 {
+    width: 100%;
+}
+
+#latest-posts ul {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+#latest-posts ul li {
+    border-bottom:1px dotted #ccc;
+}
+
+#latest-posts ul li:last-of-type {
+    border:none;
+}
