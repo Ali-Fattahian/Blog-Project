@@ -37,9 +37,11 @@
             </div>
             <article class = "article">
                 <img src = "{{ one_post.image.url }}" alt = '{{ one_post.title }}'> <!--add filter(after the quotations) will add the value of the key 'image' after the slash-->
-                <address>By <a href = 'mailto:{{post.author.email_address}}'>{{ one_post.author }}</a></address>
-                <div>Last Updated on <time>{{ one_post.date|date:'d M Y'}}</time></div> <!-- one of the several ways of foramting the date-->
             </article>
+            <div class="address">
+                <address>By <a href = 'mailto:{{post.author.email_address}}'>{{ one_post.author }}</a></address>
+                <div class="time">Last Updated on <time>{{ one_post.date|date:'d M Y'}}</time></div> <!-- one of the several ways of foramting the date-->
+            </div>
         </section>
 
         {% if form.errors %}

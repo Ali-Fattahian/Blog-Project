@@ -1,30 +1,23 @@
+#main-navigation {
+    min-width: 500px;
+}
+
 #summary {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
+    min-width: 0;
 }
 
 #summary h2 {
-    order:1;
     font-size: 2rem;
 }
-
+/* 
 .article {
     display: none;
-}
+} */
 
-#summary article img {
+/* #summary article img {
     display: none;
-}
+} */
 
-#read-later {
-    order: 5;
-}
-
-#tags {
-    order: 4;
-}
 
 #latest-posts {
     margin-top: 5rem;

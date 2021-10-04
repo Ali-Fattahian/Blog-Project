@@ -1,10 +1,14 @@
+ #summary {
+    min-width: 0;
+}
+
 #summary h2 {
     font-size: 2rem;
     margin-top: 3.75rem;
     margin-left:1rem;
 }
 
-#read-later {
+/* #read-later {
     margin-top:15%;
     margin-left: 5%;
 }
@@ -12,7 +16,7 @@
 .tag {
     margin-left: 1rem;
     margin-top: 1rem;
-}
+} */ */
 
 #latest-posts {
     margin-top: 5rem;
