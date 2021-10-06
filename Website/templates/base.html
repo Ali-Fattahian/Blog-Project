@@ -77,8 +77,8 @@
                         <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Sign In</a>
                     </li> {% endcomment %}
             </ul>
-            <form class="d-flex">
-                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <form class="d-flex" action="{% url 'posts' %}" method="get">
+                <input class="form-control me-2" type="search" value="{{search_query}}" placeholder="Search" aria-label="Search" name="search_query">
                 <button class="btn btn-outline-success" type="submit" style="height:2.4rem;">Search</button>
             </form>
         </div>

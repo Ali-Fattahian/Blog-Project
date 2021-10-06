@@ -1,10 +1,11 @@
-from django.shortcuts import redirect, render, get_object_or_404
-from .models import  Post
+from django.shortcuts import render, get_object_or_404
+from .models import Post
 from .forms import CommentForm
-from django.views.generic import TemplateView, ListView
+from django.views.generic import TemplateView
 from django.views import View
 from django.urls import reverse
 from django.http import HttpResponseRedirect
+from .utils import search_posts
 
 
 def get_date(post):
@@ -61,11 +62,16 @@ class LatestPostsView(TemplateView): #My Approach
 #         context['all_posts'] = self.all_posts
 #         return context
 
-class AllPostsView(ListView): #Max Approach - this one is better for all of posts - so i use this one instead
-    template_name = 'blog/all-posts.html'
-    model = Post
-    ordering = ['-date']
-    context_object_name = 'all_posts'
+# class AllPostsView(ListView): #Max Approach - this one is better for all of posts - so i use this one instead
+#     template_name = 'blog/all-posts.html'
+#     model = Post
+#     ordering = ['-date']
+#     context_object_name = 'all_posts'
+
+def all_posts(request):
+    search_query, posts = search_posts(request)
+    context = {'all_posts':posts, 'search_query':search_query}
+    return render(request, 'blog/all-posts.html', context)
 
 
 
