@@ -6,6 +6,7 @@ body {
     margin: 7rem auto;
     width: 90%;
     max-width: 60rem;
+    position: relative;
   }
   
   #all-posts h2 {
@@ -68,3 +69,48 @@ body {
     background-color: #390281;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
   }
+
+.pagination-section {
+  position: absolute;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 2rem;
+}
+
+.pagination__items {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.pagination-item {
+  background-color: #390281;
+  border-radius: 4px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.4s ease-in-out;
+}
+
+.pagination-item__highlighted {
+  background-color: black;
+}
+
+.pagination-item:hover,
+.pagination-item:active {
+  background-color: #5706c0;
+  color: white;
+}
+
+.pagination-item__highlighted:active ,
+.pagination-item__highlighted:hover {
+  background-color: #333;
+}
+
+.pagination-item a {
+  color: #e7e7e7;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+}

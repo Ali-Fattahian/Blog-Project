@@ -115,3 +115,7 @@ main {
 .welcome-header {
     display: none;
 }
+
+.pagination-section {
+    bottom: 10%;
+}

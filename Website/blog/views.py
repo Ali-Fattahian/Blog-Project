@@ -1,3 +1,4 @@
+from django.core import paginator
 from django.shortcuts import render, get_object_or_404
 from .models import Post
 from .forms import CommentForm
@@ -5,15 +6,11 @@ from django.views.generic import TemplateView
 from django.views import View
 from django.urls import reverse
 from django.http import HttpResponseRedirect
-from .utils import search_posts
+from .utils import search_posts, paginate_posts
 
 
-def get_date(post):
-    return post['date']
-
-
-
-
+# def get_date(post):
+#     return post['date']
 
 
 # def latest_posts(request):
@@ -22,7 +19,7 @@ def get_date(post):
 #         'posts':latest_posts
 #     })
 
-
+#----------------------------------------------------------
 class LatestPostsView(TemplateView): #My Approach
     template_name = 'blog/index.html'
     all_posts = Post.objects.all().order_by('-date')[:3]
@@ -42,9 +39,7 @@ class LatestPostsView(TemplateView): #My Approach
 #         query_set =  super().get_queryset()
 #         newest_data = query_set[:3] #just the first three
 #         return newest_data
-
-
-
+#----------------------------------------------------------
 
 
 # def posts(request):
@@ -70,13 +65,13 @@ class LatestPostsView(TemplateView): #My Approach
 
 def all_posts(request):
     search_query, posts = search_posts(request)
-    context = {'all_posts':posts, 'search_query':search_query}
+
+    custom_range, posts, paginator = paginate_posts(request, posts, 3)
+
+    context = {'all_posts':posts, 'search_query':search_query, 'custom_range':custom_range}
     return render(request, 'blog/all-posts.html', context)
 
-
-
-
-
+#----------------------------------------------------------
 
 
 # def post_detail(request, slug):
@@ -123,7 +118,10 @@ class PostDetailView(View):
             'comments':post.comments.all().order_by('-id')
             }
             return render(request, 'blog/post-detail.html', context)
-    
+
+#----------------------------------------------------------
+
+
 class ReadLaterView(View):
     def get(self, request):
         stored_posts = request.session.get("stored_posts")

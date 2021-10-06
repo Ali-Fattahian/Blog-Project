@@ -23,7 +23,7 @@ class Tag(models.Model):
 class Post(models.Model):
     title = models.CharField(max_length = 50)
     excerpt = models.CharField(max_length= 200)
-    image = models.ImageField(upload_to = 'posts', null = True)
+    image = models.ImageField(upload_to = 'posts', null = True, default = 'posts/default_post_image.jpg')
     date = models.DateField(auto_now = True)
     slug = models.SlugField(unique=True) #db_index = True is here by default, we don't have to add it.(it is use to make quering the data more efficient)
     content = models.TextField(validators = [MinLengthValidator(10)])
