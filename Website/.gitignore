@@ -1,6 +1,8 @@
 .env
 venv
-
+.vscode
+blog/__pycache__
+db.sqlite3
 # Created by https://www.toptal.com/developers/gitignore/api/django,python,visualstudiocode,venv
 # Edit at https://www.toptal.com/developers/gitignore?templates=django,python,visualstudiocode,venv
 
@@ -8,7 +10,7 @@ venv
 *.log
 *.pot
 *.pyc
-__pycache__/
+Website/__pycache__
 local_settings.py
 db.sqlite3
 db.sqlite3-journal
