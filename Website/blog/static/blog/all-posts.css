@@ -110,7 +110,14 @@ body {
 }
 
 .pagination-item a {
-  color: #e7e7e7;
+  /* color: #e7e7e7; */
+  color: #5706c0;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+}
+
+.page-link {
+  color: #5706c0;
   text-decoration: none;
   padding: 0.5rem 1rem;
 }
