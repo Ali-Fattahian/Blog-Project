@@ -12,6 +12,10 @@ body {
   margin: 0;
 }
 
+body * {
+  transition: background .3s ease-in-out;
+}
+
 h1,
 h2,
 h3 {

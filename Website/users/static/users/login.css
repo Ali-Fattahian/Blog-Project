@@ -1,0 +1,103 @@
+.navbar .d-flex {
+    align-items: center;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.login-container {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-form {
+    background-color: #6305dd4f;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 40%;
+    height: 50%;
+    box-shadow: -13px 13px 11px -2px #555;
+    border-radius: 8px;
+    padding: 2rem .5rem;
+    min-height: 420px;
+    min-width: 270px;
+}
+
+.login-form > div {
+    width: 100%;
+    height: 30%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top:1rem;
+}
+
+.lgin-form > h1 {
+    color: #333;
+}
+
+label {
+    display: block;
+    margin: 0;
+}
+
+input {
+    border: none;
+    margin: 1rem auto;
+    width: 80%;
+    height: 2rem;
+    font-size: 10px bold;
+    border-radius: 2px;
+    outline-color: blueviolet;
+    padding-left: .5rem;
+}
+
+input:focus {
+    background: rgb(238, 237, 237);
+}
+
+.login-container .login-form button {
+    background-color: #390281;
+    color: #fff;
+    border: 1px solid #390281;
+    /* padding: 1.5% 5%; */
+    padding: .4rem .8rem;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-top: 1rem;
+}
+
+.login-container .login-form button:active,
+.login-container .login-form button:hover {
+    background-color: #4f0ba7;
+    border-color: #4f0ba7;
+}
+
+.register-section {
+    margin-top:1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.register-section h5 {
+    font-size: 1rem;
+}
+
+.forward-sign-up {
+    text-decoration: none;
+    color: #333;
+    transition: all .3s ease-in-out;
+}
+
+.forward-sign-up:active,
+.forward-sign-up:hover {
+    transform:scale(1.1);
+    color: #e48900;
+}
