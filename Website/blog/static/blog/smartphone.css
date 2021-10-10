@@ -117,5 +117,18 @@ main {
 }
 
 .pagination-section {
-    bottom: 10%;
+    margin-top: 6rem;
+}
+
+.pagination__items {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.pagination-item {
+    background: none;
+}
+
+.page-link {
+    font-size: .7rem;
 }

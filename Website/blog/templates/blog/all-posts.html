@@ -20,8 +20,9 @@ All The Posts
          {% include 'blog/includes/post.html'%}
         {% endfor %}
     </ul>
+    {% include 'pagination.html' with queryset=all_posts custome_range=custome_range %}
 </section>
 
-    {% include 'pagination.html' with queryset=all_posts custome_range=custome_range %}
+    
 
 {% endblock %}
