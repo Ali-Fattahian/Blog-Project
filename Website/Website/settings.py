@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'blog.apps.BlogConfig',
     'users.apps.UsersConfig',
     'bootstrap5',
+    'crispy_forms',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -139,3 +140,5 @@ STATICFILES_DIRS = [
 
 MEDIA_URL  = '/media/'
 MEDIA_ROOT = BASE_DIR / 'uploads'
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
