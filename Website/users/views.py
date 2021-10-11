@@ -27,4 +27,7 @@ class LoginView(View):
             else:
                 print('can\'t find the password')
                 return redirect('sign-in')
-        
+
+def logout_view(request):
+    logout(request)
+    return redirect('homepage')
