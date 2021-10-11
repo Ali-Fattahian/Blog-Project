@@ -126,9 +126,23 @@ main {
 }
 
 .pagination-item {
-    background: none;
+    background: transparent;
+}
+
+.pagination-item a {
+    background-color: #fff;
+}
+
+.pagination-item__highlighted:active,
+.pagination-item__highlighted:hover {
+    background: transparent;
+}
+
+.pagination-item__highlighted a {
+    background-color: #86b7fe;
+    color: black;
 }
 
 .page-link {
-    font-size: .7rem;
+    font-size: .8rem;
 }

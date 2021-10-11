@@ -86,7 +86,7 @@ body {
 }
 
 .pagination-item {
-  background-color: #390281;
+  background-color: #fff;
   border-radius: 4px;
   display: flex;
   justify-content: center;
@@ -95,18 +95,20 @@ body {
 }
 
 .pagination-item__highlighted {
-  background-color: black;
+  background-color: #86b7fe;
+  color: black;
 }
 
 .pagination-item:hover,
 .pagination-item:active {
-  background-color: #5706c0;
+  background-color: #e7e7e7;
   color: white;
 }
 
 .pagination-item__highlighted:active ,
 .pagination-item__highlighted:hover {
-  background-color: #333;
+  background-color: #86b7fe;
+  color: black;
 }
 
 .pagination-item a {
@@ -114,6 +116,7 @@ body {
   color: #5706c0;
   text-decoration: none;
   padding: 0.5rem 1rem;
+  background: transparent;
 }
 
 .page-link {
