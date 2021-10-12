@@ -1,0 +1,119 @@
+a {
+    text-decoration: none;
+    color: black;
+}
+
+.edit-profile {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100vw;
+    height: 91vh;
+}
+
+.edit-profile__header {
+    background-color: #666;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem 0;
+    position: relative;
+    text-align: center;
+}
+
+.edit-profile__header-content {
+    margin-top: 2rem;
+}
+
+.img-container {
+    display: flex;
+}
+
+.img-container img {
+    height: 120px;
+    width: 120px;
+    border-radius: 50%;
+    background-color: black;
+    position: relative;
+    margin: auto;
+}
+
+.edit-profile__header a {
+    margin-top: .5rem;
+    display: inline-block;
+    text-decoration: underline;
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.user-info {
+    background-color: #777;
+    padding: 2rem 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.user-info > * {
+    margin: 2.5rem 0;
+}
+
+.user-info__inputs {
+    display: grid;
+    /*grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));*/
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 204px;
+    grid-row-gap: 64px;
+    width: 100%;
+    padding: 0 2rem;
+}
+
+.user-info__input {
+    display: flex;
+    flex-direction: column;
+    /*align-items: center;*/
+    text-align: left;
+    justify-content: center;
+}
+
+.user-info__input input {
+    width: 80%;
+    height: 40px;
+    margin: 0 auto;
+    padding-left: .7rem;
+}
+
+.user-info__input label {
+    text-align: left;
+    margin-bottom: 1.1rem;
+    margin-left: 10%;
+}
+
+.user-info__input:last-child {
+    margin-left: 10%;
+}
+
+.save-changes {
+    padding: .7rem 1.8rem;
+    background-color: #222;
+    border-radius: 5px;
+    color: white;
+    transition: all .4s ease-in-out;
+}
+
+.save-changes:hover,
+.save-changes:active {
+    opacity: .9;
+}
+
+.navbar {
+    padding: 1rem 0;
+}
+
+@media only screen and (max-width: 860px) {
+    .user-info__inputs {
+        grid-template-columns: 1fr;
+    }
+}
