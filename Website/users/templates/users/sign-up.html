@@ -14,10 +14,19 @@
 {% endblock %}
 
 {% block content %}
-    <div class="sign-up-container">
-        <form action="{% url 'sign-up' %}" method="post">
+    <div class="sign-up__container">
+        <form class="sign-up__form" action="{% url 'sign-up' %}" method="post">
             {% csrf_token %}
-            {{ form|crispy }}
+            <h1>Create Your Account</h1>
+            {% for field in form %}
+                <div class="form-group">
+                    <label for="{{ field.label }}">{{ field.label|title }}</label>
+                    {{ field }}
+                    {% for error in field.errors %}
+                        <p style="color:#57401f;">{{ error }}</p>
+                    {% endfor%}
+                </div>
+            {% endfor %}
             <button type="submit">Sign Up</button>
             <section class="login-section">
                 <h5>Already Have An Account?</h5>
