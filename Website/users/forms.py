@@ -27,7 +27,7 @@ class EditProfileForm(ModelForm):
             'social_twitter':'Twitter Account',
             'social_facebook':'Facebook Account',
             'social_linkedin':'Linkedin Account',
-            'social_github':'Github Account',
+            'social_youtube':'Youtube Account',
             'social_instagram':'Instagram Account',
-            'website':'Website'
+            'social_whatsapp':'WhatsApp Account'
         }

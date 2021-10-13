@@ -11,9 +11,9 @@ class Profile(models.Model):
     social_twitter = models.URLField(null = True, blank = True)
     social_facebook = models.URLField(null = True, blank = True)
     social_linkedin = models.URLField(null = True, blank = True)
-    social_github = models.URLField(null = True, blank = True)
+    social_youtube = models.URLField(null = True, blank = True)
     social_instagram = models.URLField(null = True, blank = True)
-    website = models.URLField(null = True, blank = True)
+    social_whatsapp = models.URLField(null = True, blank = True)
     profile_picture = models.ImageField(upload_to = 'users_profile_picture', default = 'users_profile_picture/default_user_image.png')
 
     def __str__(self):
