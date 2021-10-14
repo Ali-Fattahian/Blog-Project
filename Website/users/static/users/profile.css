@@ -1,0 +1,104 @@
+body {
+    background-color: yellowgreen;
+}
+
+.navbar {
+    position: static;
+}
+
+main {
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.user-profile__header {
+    background-color: lawngreen;
+    flex: 1;
+    display: flex;
+    padding: 1rem 2rem;
+    width: 100%;
+}
+
+.user-profile__image {
+    flex: 2;
+    margin: auto;
+    order: 2;
+}
+
+.user-profile__image img {
+    min-width: 130px;
+    max-width: 200px;
+}
+
+.user-profile__infos {
+    flex: 2;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 1fr 3fr;
+    border-bottom: 1px black solid;
+    text-align: left;
+    order: 3;
+}
+
+.return-icon {
+    width: 3rem;
+    height: 3rem;
+    background-color: transparent;
+    color: white;
+    flex: 2;
+    order: 1;
+}
+
+.social-media__disabled {
+    cursor: not-allowed;
+}
+
+.user-profile__body {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 4rem;
+    grid-row-gap: 1rem;
+    background-color: darkgreen;
+    width: 100%;
+    flex: 3;
+    padding: 1rem 0;
+    justify-content: center;
+    align-items: center;
+}
+
+@media screen and (max-width: 760px) and (min-width:351px) {
+    main {
+        margin: auto;
+    }
+    
+    .user-profile__header {
+        display: grid;
+        padding: 0 1rem;
+    }
+
+    .user-profile__image {
+        margin-bottom: 1rem;
+    }
+
+    .user-profile__image img {
+        width: 10rem;
+        height: 10rem;
+    }
+
+    .user-profile__infos {
+        padding-bottom: 1rem;
+    }
+}
+
+@media screen and (max-width:350px) {
+    .user-profile__header {
+        display: block;
+        /* padding-top: 15rem;
+        margin-top: 20rem; */
+        padding: 0rem 1.5rem;
+    }
+}

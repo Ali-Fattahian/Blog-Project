@@ -72,3 +72,9 @@ class EditProfileView(View):
         else:
             messages.warning(request, 'Something Went Wrong!')
             return render(request, 'users/edit-profile.html', context)
+
+
+def user_profile(request, username):
+    user = get_object_or_404(User, username = username)
+    context = {'user':user}
+    return render(request, 'users/profile.html', context)
