@@ -1,5 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth import login, logout, authenticate
+from django.urls import reverse
+from django.http import HttpResponseRedirect
 from django.contrib import messages
 from django.contrib.auth.models import User
 from django.views import View
@@ -68,7 +70,7 @@ class EditProfileView(View):
         if form.is_valid():
             messages.success(request, 'Saved!')
             form.save()
-            return redirect('homepage')
+            return HttpResponseRedirect(reverse('profile', args=[profile.user.username]))
         else:
             messages.warning(request, 'Something Went Wrong!')
             return render(request, 'users/edit-profile.html', context)
