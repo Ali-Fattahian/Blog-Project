@@ -58,6 +58,9 @@
             <ul>
                 {% for comment in comments %}
                     <li>
+                        {% if comment.user.profile.profile_picture %}
+                        <img src="{{ comment.user.profile.profile_picture.url }}" class="comment-profile-picture" alt="{{ comment.user.username }}">
+                        {% endif %}
                         <h2>
                             {{ comment.user.username }}
                         </h2>

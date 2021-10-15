@@ -215,8 +215,22 @@ main {
   border-bottom: none;
 }
 
+#comments .comment-profile-picture {
+  width: 5rem;
+  height: 5rem;
+  border-radius: 50%;
+  display: inline-block;
+  margin-bottom: .5rem;
+  margin-right: .3rem;
+}
+
 #comments h2 {
   color: #464646;
+  display: inline-block;
+}
+
+#comments p {
+  margin-left: .4rem;
 }
 
 #comment-form .button-disabled {
