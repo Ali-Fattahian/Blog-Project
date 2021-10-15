@@ -8,7 +8,7 @@ class PostAdmin(admin.ModelAdmin):
     prepopulated_fields = {'slug':('title',)}
 
 class CommentAdmin(admin.ModelAdmin):
-    list_display = ('username', 'post')
+    list_display = ('post', 'user')
 
 admin.site.register(Post, PostAdmin)
 admin.site.register(Author)

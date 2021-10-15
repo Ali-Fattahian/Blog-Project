@@ -105,9 +105,11 @@ class PostDetailView(View):
     def post(self, request, slug):
         post = get_object_or_404(Post, slug = slug)
         form = CommentForm(request.POST)
+        user = request.user
         if form.is_valid():
             comment = form.save(commit=False)
             comment.post = post
+            comment.user = user
             comment.save()
             return HttpResponseRedirect(reverse('post', args=[slug]))
         else:

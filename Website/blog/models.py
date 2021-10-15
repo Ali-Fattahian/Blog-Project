@@ -1,4 +1,5 @@
 from django.core import validators
+from django.contrib.auth.models import User
 from django.db import models
 from django.db.models.fields import CharField
 from django.core.validators import MinLengthValidator
@@ -34,7 +35,6 @@ class Post(models.Model):
         return f'Post Title : {self.title}  |  Post Author : {self.author}'
 
 class Comment(models.Model):
-    username = models.CharField(max_length=120)
-    email = models.EmailField()
+    user = models.ForeignKey(User, on_delete=models.PROTECT, related_name = 'comment', null=True, blank=True)
     comment_content = models.TextField(max_length=400)
     post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name='comments')
