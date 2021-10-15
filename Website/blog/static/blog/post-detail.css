@@ -239,6 +239,12 @@ main {
   color: #5706c0;
 }
 
+#comments h6 {
+  color: #333;
+  font-weight: normal;
+  font-size: .8rem;
+}
+
 #comments p {
   margin-left: .4rem;
 }
