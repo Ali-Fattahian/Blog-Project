@@ -218,3 +218,12 @@ main {
 #comments h2 {
   color: #464646;
 }
+
+#comment-form .button-disabled {
+  background-color: #3f1a70;
+  cursor: not-allowed;
+}
+
+.users-only {
+  font-size: .8rem;
+}
