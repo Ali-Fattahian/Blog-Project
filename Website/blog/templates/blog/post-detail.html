@@ -62,7 +62,7 @@
                         <img src="{{ comment.user.profile.profile_picture.url }}" class="comment-profile-picture" alt="{{ comment.user.username }}">
                         {% endif %}
                         <h2>
-                            {{ comment.user.username }}
+                            <a href="{% url 'profile' comment.user.username %}">{{ comment.user.username }}</a>
                         </h2>
                         <p>
                             {{ comment.comment_content|linebreaks }}

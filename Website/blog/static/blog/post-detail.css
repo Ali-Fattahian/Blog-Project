@@ -225,8 +225,18 @@ main {
 }
 
 #comments h2 {
+  display: inline-block;
+}
+
+#comments h2 a {
   color: #464646;
   display: inline-block;
+  text-decoration: none;
+}
+
+#comments h2 a:hover,
+#comments h2 a:active {
+  color: #5706c0;
 }
 
 #comments p {
