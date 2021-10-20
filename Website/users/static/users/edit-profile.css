@@ -1,18 +1,18 @@
+#header {
+    position: static;
+}
+
 a {
     text-decoration: none;
     color: black;
 }
 
 .edit-profile {
-    position: absolute;
-    left: 0;
-    bottom: 0;
     width: 100vw;
-    height: 91vh;
 }
 
 .edit-profile__header {
-    background-color: #666;
+    background-color: rgba(100, 252, 217, 0.7);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -47,7 +47,8 @@ a {
 }
 
 .user-info {
-    background-color: #777;
+    background-color: #6B8E86;
+    color: #fff;
     padding: 2rem 0;
     display: flex;
     flex-direction: column;
@@ -78,11 +79,18 @@ a {
     justify-content: center;
 }
 
-.user-info__input input {
+.user-info__input input,textarea {
     width: 80%;
     height: 40px;
     margin: 0 auto;
     padding-left: .7rem;
+    background-color: rgba(100, 252, 217, 0.7);
+    border: none;
+}
+
+.user-info__input textarea {
+    height: 120px;
+    padding-top: 1rem;
 }
 
 .user-info__input label {
@@ -95,21 +103,22 @@ a {
     margin-left: 10%;
 }
 
+.user-info__input:last-child input {
+    background-color: transparent;
+}
+
 .save-changes {
     padding: .7rem 1.8rem;
-    background-color: #222;
+    background-color: var(--btn-color);
     border-radius: 5px;
-    color: white;
+    color: #000;
     transition: all .4s ease-in-out;
+    border: none;
 }
 
 .save-changes:hover,
 .save-changes:active {
     opacity: .9;
-}
-
-.navbar {
-    padding: 1rem 0;
 }
 
 @media only screen and (max-width: 860px) {

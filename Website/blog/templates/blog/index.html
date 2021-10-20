@@ -5,38 +5,41 @@
  {% endblock %}
 
 {% block css %}
-  <link rel = 'stylesheet' href = '{% static 'blog/post.css'%}'>
   <link rel = 'stylesheet' href = '{% static 'blog/index.css'%}'>
-  <link rel="stylesheet" media = "screen and (min-width:651px) and (max-width:768px)" href="{% static 'blog/tablet.css' %}">
-  <link rel="stylesheet" media = "screen and (min-width:501px) and (max-width:650px)" href="{% static 'blog/mini-tablet.css' %}">
-  <link rel="stylesheet" media = "screen and (max-width:500px)" href="{% static 'blog/smartphone.css' %}">
 {% endblock %}
- {% block content %}
-    <section id = 'welcome'>
-      <header>
-        <img src = '{% static 'blog/images/me.jpg' %}' alt = 'Ali - The Author Of This BLog'>
-        <h2 class = "welcome-header">Ali' Blog</h2>
-      </header>
-      <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eligendi, molestiae.</P>
-    </section>
 
-    <section id= 'latest-posts'>
-      <h2>My Latest Thoughts</h2>
-      <ul>
+ {% block content %}
+        <main id="main">
+        <img src="{{ latest_post.image.url }}" alt="{{ latest_post.title }}">
+        <section class="newest-post">
+            <h1>
+                {{ latest_post.title }}
+            </h1>
+            <p>
+                {{ latest_post.excerpt }}
+            </p>
+            <div class="meta-readmore">
+                <div class="meta">
+                    <img src="{{ latest_post.author.profile.profile_picture.url }}" alt="{{ latest_post.author.username }}" class="newest-post__author-picture">
+                    <div class="author-date">
+                        <h6><a href="{% url 'profile' latest_post.author.username %}">{{ latest_post.author.username }}</a></h6>
+                        <small>{{ latest_post.date_created }}</small>
+                    </div>
+
+                </div>
+                <div class="read-more">
+                    <a href="{% url 'post' latest_post.slug %}" class="button">Read More</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Other New Posts Section -->
+
+    <section id="new-posts">
         {% for post in posts %}
           {% include 'blog/includes/post.html'%}
         {% endfor %}
-      </ul>
-    </section>
-
-    <section id = 'about'>
-      <h2> What I Do</h2>
-      <p>
-        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eligendi, molestiae.
-      </p>
-      <p>
-        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eligendi, molestiae.
-      </p>
     </section>
 
     {% endblock %}

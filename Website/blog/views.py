@@ -21,9 +21,11 @@ from .utils import search_posts, paginate_posts
 #----------------------------------------------------------
 class LatestPostsView(TemplateView): #My Approach
     template_name = 'blog/index.html'
-    all_posts = Post.objects.all().order_by('-date')[:3]
+    latest_post = Post.objects.latest('date_created')
+    all_posts = Post.objects.all().order_by('-date')[1:3]
     def get_context_data(self, **kwargs):
         context =  super().get_context_data(**kwargs)
+        context['latest_post'] = self.latest_post
         context['posts'] = self.all_posts
         return context
 

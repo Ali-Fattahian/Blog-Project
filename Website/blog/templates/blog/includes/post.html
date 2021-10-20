@@ -1,13 +1,19 @@
-<li>
-    <article class = 'post'>
-        <a href = '{% url 'post' post.slug %}'>
-        <img src = '{{ post.image.url }}' alt = '{{ post.title }}'>
-        <div class = 'post_content'>
-            <h3>{{post.title}}</h3> <!--We have access to variables from those templates that included this template(index.html variable in this case) -->
-            <p>
-                {{ post.excerpt}}
-            </p>
-        </div>
-        </a>
-    </article>
-</li>
+<div class="new-post__container">
+    <a class="new-post card" href="{% url 'post' post.slug %}">
+        <img src="{{ post.image.url }}" alt="{{ post.title }}" class="newest-post__author-picture">
+        <h1>
+            {{ post.title }}
+        </h1>
+        <p>
+           {{ post.excerpt }}
+        </p>
+        <!-- <div class="meta-readmore">
+            <div class="meta">
+                <div class="author-date">
+                    <h6><a href="#">Authors Name</a></h6>
+                    <small>date-created</small>
+                </div>
+            </div>
+        </div> -->
+    </a>
+</div>
