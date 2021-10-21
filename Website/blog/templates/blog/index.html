@@ -5,12 +5,18 @@
  {% endblock %}
 
 {% block css %}
+    <style>
+        .newest-post {
+            background-image: url("{{ latest_post.image.url }}");
+            position: relative;
+            top: 10%;
+        }
+    </style>
   <link rel = 'stylesheet' href = '{% static 'blog/index.css'%}'>
 {% endblock %}
 
  {% block content %}
         <main id="main">
-        <img src="{{ latest_post.image.url }}" alt="{{ latest_post.title }}">
         <section class="newest-post">
             <h1>
                 {{ latest_post.title }}
