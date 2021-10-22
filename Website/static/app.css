@@ -100,3 +100,15 @@ a {
   background-color: rgba(100, 252, 217, 0.4);
   color: #fff;
 }
+
+@media screen and (max-width: 920px) and (min-width: 321px) {
+  .nav-container {
+    padding: 0 2rem;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .nav-container {
+    padding: 0;
+  }
+}
