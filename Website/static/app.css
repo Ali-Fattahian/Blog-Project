@@ -101,6 +101,14 @@ a {
   color: #fff;
 }
 
+.alert {
+  position: fixed;
+  width:none;
+  top: 5rem;
+  left: 5rem;
+  z-index:2;
+}
+
 @media screen and (max-width: 920px) and (min-width: 321px) {
   .nav-container {
     padding: 0 2rem;

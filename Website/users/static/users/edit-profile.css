@@ -1,5 +1,9 @@
 #header {
-    position: static;
+    position: fixed;
+}
+
+.nav-container {
+    position:static;
 }
 
 a {
@@ -17,6 +21,7 @@ a {
     justify-content: center;
     align-items: center;
     padding: 1rem 0;
+    padding-top: 2rem;
     position: relative;
     text-align: center;
 }
