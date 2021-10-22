@@ -20,17 +20,30 @@
   padding: 2rem;
   padding-top: 5rem;
   padding-bottom: 4rem;
+  overflow:hidden
+}
+
+#main .newest-post:before {
+  content: '';
+  background-color: rgba(0, 0, 0, .5);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }
 
 #main .newest-post h1,
 p {
-  height: inherit;
+  /* height: inherit;
   background: inherit;
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
   /*    text-shadow: .05em .05em orange;*/
-  filter: invert(1) grayscale(1) contrast(9);
+  /* filter: invert(1) grayscale(1) contrast(9);  */
+  color: #fff;
+  z-index: 1;
 }
 
 #main .meta-readmore {
@@ -38,12 +51,16 @@ p {
   justify-content: space-between;
   align-items: center;
   padding: 0 2rem;
+  color: #fff;
+  z-index: 1;
 }
 
 #main .meta {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  color: #fff;
+  z-index: 1;
 }
 
 #main .meta > img {
@@ -59,6 +76,8 @@ p {
 
 #main .meta .author-date a {
   text-decoration: none;
+  color: #fff;
+  z-index: 1;
 }
 
 #main .meta .author-date a:hover,
@@ -107,11 +126,13 @@ p {
   margin-top: 1.5rem;
   margin-bottom: 1rem;
   text-align: center;
+  color:var(--secondary-color)
 }
 
 #new-posts .new-post p {
   margin-left: 1rem;
   margin-right: 1rem;
+  color:var(--secondary-color)
 }
 
 /* ------------------------------------ */
