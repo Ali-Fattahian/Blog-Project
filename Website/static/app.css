@@ -50,6 +50,7 @@ a {
 /* Header  */
 
 #header {
+  position: -webkit-sticky;
   position: sticky;
   width: 100%;
   z-index: 2;

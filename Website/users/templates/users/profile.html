@@ -38,55 +38,57 @@
                         {% if user.profile.social_facebook %}
                         <a href="{{ user.profile.social_facebook }}" target="_blank" class="account-link button--linear">Facebook Account</a>
                         {% else %}
-                        <a href="#" target="_blank" class="account-link button--linear account-link--disabled">Facebook Account</a>
+                        <a href="#" class="account-link button--linear account-link--disabled">Facebook Account</a>
                         {% endif %}
 
                         {% if user.profile.social_whatsapp %}
                         <a href="{{ user.profile.social_whatsapp }}" target="_blank" class="account-link button--linear">WhatsApp Account</a>
                         {% else %}
-                        <a href="#" target="_blank" class="account-link button--linear account-link--disabled">WhatsApp Account</a>
+                        <a href="#" class="account-link button--linear account-link--disabled">WhatsApp Account</a>
                         {% endif %}
 
                         {% if user.profile.social_twitter %}
                         <a href="{{ user.profile.social_twitter }}" target="_blank" class="account-link button--linear">Twitter Account</a>
                         {% else %}
-                        <a href="#" target="_blank" class="account-link button--linear account-link--disabled">Twitter Account</a>
+                        <a href="#" class="account-link button--linear account-link--disabled">Twitter Account</a>
                         {% endif %}
 
                         {% if user.profile.social_youtube %}
                         <a href="{{ user.profile.social_youtube }}" target="_blank" class="account-link button--linear">Youtube Account</a>
                         {% else %}
-                        <a href="#" target="_blank" class="account-link button--linear account-link--disabled">Youtube Account</a>
+                        <a href="#" class="account-link button--linear account-link--disabled">Youtube Account</a>
                         {% endif %}
 
                         {% if user.profile.social_linkedin %}
                         <a href="{{ user.profile.social_linkedin }}" target="_blank" class="account-link button--linear">Linkedin Account</a>
                         {% else %}
-                        <a href="#" target="_blank" class="account-link button--linear account-link--disabled">Linkedin Account</a>
+                        <a href="#" class="account-link button--linear account-link--disabled">Linkedin Account</a>
                         {% endif %}
 
                         {% if user.profile.email %}
                         <a href="mailto:{{ user.profile.email }}" target="_blank" class="account-link button--linear">Email</a>
                         {% else %}
-                        <a href="#" target="_blank" class="account-link button--linear account-link--disabled">Email</a>
+                        <a href="#" class="account-link button--linear account-link--disabled">Email</a>
                         {% endif %}
 
                         {% if user.profile.social_website %}
                         <a href="{{ user.profile.social_website }}" target="_blank" class="account-link button--linear">Website</a>
                         {% else %}
-                        <a href="#" target="_blank" class="account-link button--linear account-link--disabled">Website</a>
+                        <a href="#" class="account-link button--linear account-link--disabled">Website</a>
                         {% endif %}
 
                         {% if user.profile.social_facebook %}
                         <a href="{{ user.profile.social_facebook }}" target="_blank" class="account-link button--linear">Facebook Account</a>
                         {% else %}
-                        <a href="#" target="_blank" class="account-link button--linear account-link--disabled">Facebook Account</a>
+                        <a href="#" class="account-link button--linear account-link--disabled">Facebook Account</a>
                         {% endif %}
                     </ul>
                 </div>
+                {% if user.profile == request.user.profile %}
                 <div class="user-profile__edit">
-                    <a href="#" class="edit-profile__link button--linear">Edit</a>
+                    <a href="{% url 'edit-profile' user.profile.slug %}" class="edit-profile__link button--linear">Edit</a>
                 </div>
+                {% endif %}
             </section>
         </div>
     </main>

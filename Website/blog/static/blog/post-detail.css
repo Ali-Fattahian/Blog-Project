@@ -123,9 +123,9 @@ main {
 
 #comment-form button {
   font: inherit;
-  background-color: #390281;
-  color: white;
-  border: 1px solid #390281;
+  background-color: var(--btn-color);
+  color: #000;
+  border: 1px solid var(--btn-color);
   padding: 0.5rem 1.5rem;
   border-radius: 6px;
   cursor: pointer;
@@ -133,8 +133,7 @@ main {
 
 #comment-form button:hover,
 #comment-form button:active {
-  background-color: #4f0ba7;
-  border-color: #4f0ba7;
+  opacity: .9;
 }
 
 .errorlist {
@@ -218,7 +217,7 @@ main {
 
 #comments h2 a:hover,
 #comments h2 a:active {
-  color: #5706c0;
+  color: var(--primary-color);
 }
 
 #comments h6 {
@@ -255,7 +254,7 @@ main {
 }
 
 #comment-form .button-disabled {
-  background-color: #3f1a70;
+  background-color: var(--btn-color);
   cursor: not-allowed;
 }
 

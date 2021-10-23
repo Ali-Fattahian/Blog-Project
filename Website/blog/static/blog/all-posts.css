@@ -12,6 +12,10 @@ body {
   position: static;
 }
 
+#header .navbar-nav {
+  gap: 0;
+} 
+
 #all-posts {
   margin: 7rem auto;
   width: 90%;

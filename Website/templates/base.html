@@ -38,7 +38,7 @@
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item" href="{% url 'read-later' %}">Saved Posts</a>
-                                <a class="dropdown-item" href="{% url 'edit-profile' request.user.profile.slug %}">Profile</a>
+                                <a class="dropdown-item" href="{% url 'profile' request.user.profile.slug %}">Profile</a>
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="{% url 'sign-out' %}">Sign Out</a>
                             </div>
