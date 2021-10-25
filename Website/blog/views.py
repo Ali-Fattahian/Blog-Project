@@ -1,6 +1,8 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import redirect, render, get_object_or_404
+from django.contrib import messages
+from django.contrib.auth.mixins import PermissionRequiredMixin
 from .models import Post
-from .forms import CommentForm
+from .forms import CommentForm, PostForm
 from django.views.generic import TemplateView
 from django.views import View
 from django.urls import reverse
@@ -158,3 +160,24 @@ class ReadLaterView(View):
         request.session["stored_posts"] = stored_posts
         
         return HttpResponseRedirect("/")
+
+
+class AddNewPostView(PermissionRequiredMixin, View):
+    permission_required = 'blog.add_post'
+    def get(self, request):
+        form = PostForm()
+        context = {'form':form}
+        return render(request, 'blog/post-form.html', context)
+
+    def post(self, request):
+        form = PostForm(request.POST, request.FILES)
+        if form.is_valid():
+            form = form.save(commit=False)
+            user = request.user
+            form.author = user
+            form.save()
+            messages.success(request, 'You have successfully created a new post!')
+            return HttpResponseRedirect(reverse('post', args = [form.slug]))
+        else:
+            context = {'form':form}
+            return render(request, 'blog/post-form.html', context)

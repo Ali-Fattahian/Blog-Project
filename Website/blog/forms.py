@@ -1,5 +1,5 @@
 from django import forms
-from .models import Comment
+from .models import Comment, Post
 
 class CommentForm(forms.ModelForm):
     class Meta:
@@ -9,4 +9,12 @@ class CommentForm(forms.ModelForm):
             'username':'Your Name',
             'email': 'Your Email',
             'comment_content':'Your Comment'
+        }
+
+class PostForm(forms.ModelForm):
+    class Meta:
+        model = Post
+        fields = ['title', 'excerpt', 'content', 'image', 'tag']
+        labels = {
+            'tag':'Choose The Tags'
         }

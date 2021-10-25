@@ -23,7 +23,7 @@
                 {{ latest_post.title }}
             </h1>
             <p>
-                {{ latest_post.excerpt }}
+                {{ latest_post.content|slice:":150" }}...
             </p>
             <div class="meta-readmore">
                 <div class="meta">

@@ -1,4 +1,4 @@
-from datetime import datetime
+from django.utils.text import slugify
 from django.contrib.auth.models import User
 from django.db import models
 from django.db.models.fields import CharField
@@ -21,6 +21,10 @@ class Post(models.Model):
     content = models.TextField(validators = [MinLengthValidator(10)])
     author = models.ForeignKey(User, on_delete= models.SET_NULL, related_name = 'posts', null = True)
     tag = models.ManyToManyField(Tag)
+
+    def save(self, *args, **kwargs):
+        self.slug = slugify(self.title)
+        return super().save(*args, **kwargs)
 
     def __str__(self):
         return f'Post Title : {self.title}  |  Post Author : {self.author}'
