@@ -110,6 +110,12 @@ a {
   z-index:2;
 }
 
+.alert-dismissible .close {
+  padding: 0 !important;
+  top: 20%;
+  right: 10%;
+}
+
 @media screen and (max-width: 920px) and (min-width: 321px) {
   .nav-container {
     padding: 0 2rem;
