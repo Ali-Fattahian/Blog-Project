@@ -33,6 +33,9 @@
                         Read Later
                         {% endif %}
                     </button>
+                    {% if one_post.author == request.user %}
+                        <a href="{% url 'update-post' one_post.slug %}" class="button">Edit</a>
+                    {% endif %}
                 </form>
             </div>
             <article class = "article">

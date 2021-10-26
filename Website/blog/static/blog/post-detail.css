@@ -85,6 +85,26 @@ body {
   border: none;
 }
 
+#read-later .button {
+  display: block;
+  margin-top: .5rem;
+  text-align: center;
+  background-color: transparent;
+  border: 1px solid white;
+  padding: 0.5rem 2rem;
+  font: inherit;
+  color: white;
+  cursor: pointer;
+  transition: all 0.4s ease-in-out;
+}
+
+#read-later .button:active,
+#read-later .button:hover {
+  background-color: var(--btn-color);
+  color: var(--secondary-color);
+  border: none;
+}
+
 main {
   width: 90%;
   max-width: 90rem;

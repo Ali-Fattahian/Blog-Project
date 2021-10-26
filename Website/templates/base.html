@@ -37,8 +37,13 @@
                                 {{ request.user.username }}
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="{% url 'read-later' %}">Saved Posts</a>
                                 <a class="dropdown-item" href="{% url 'profile' request.user.profile.slug %}">Profile</a>
+                                {% for group in request.user.groups.all %}
+                                {% if group.name == 'trusted_users' %}
+                                    <a class="dropdown-item" href="{% url 'add-new-post' %}">Add a new post</a>
+                                {% endif %}
+                                {% endfor %}
+                                <a class="dropdown-item" href="{% url 'read-later' %}">Saved Posts</a>
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="{% url 'sign-out' %}">Sign Out</a>
                             </div>
