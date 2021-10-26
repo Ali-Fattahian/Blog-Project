@@ -20,7 +20,7 @@ class Post(models.Model):
     slug = models.SlugField(unique=True) #db_index = True is here by default, we don't have to add it.(it is use to make quering the data more efficient)
     content = models.TextField(validators = [MinLengthValidator(10)])
     author = models.ForeignKey(User, on_delete= models.SET_NULL, related_name = 'posts', null = True)
-    tag = models.ManyToManyField(Tag)
+    tag = models.ManyToManyField(Tag, blank=True)
 
     def save(self, *args, **kwargs):
         self.slug = slugify(self.title)

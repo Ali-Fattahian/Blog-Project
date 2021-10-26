@@ -181,3 +181,25 @@ class AddNewPostView(PermissionRequiredMixin, View):
         else:
             context = {'form':form}
             return render(request, 'blog/post-form.html', context)
+
+
+class UpdatePostView(View):
+    def get(self, request, slug):
+        post = get_object_or_404(Post, slug = slug)
+        form = PostForm(instance=post)
+        if post.author != request.user:
+            messages.warning(request, 'Only the author can edit this post')
+            return HttpResponseRedirect(reverse('post', args = [post.slug]))
+        context = {'form':form}
+        return render(request, 'blog/update-post.html', context)
+
+    def post(self, request, slug):
+        post = get_object_or_404(Post, slug = slug)
+        form = PostForm(request.POST, request.FILES, instance=post)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Saved successfully!')
+            return HttpResponseRedirect(reverse('post', args = [post.slug]))
+        else:
+            context = {'form':form, 'post':post}
+            return render(request, 'blog/update-post.html', context)
