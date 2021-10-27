@@ -7,13 +7,15 @@ from .models import Profile
 class CreateUserForm(UserCreationForm):
     class Meta:
         model = User
-        fields = ('username', 'password1', 'password2')
+        fields = ('username', 'email', 'password1', 'password2')
 
         labels = {
             'username':'Username',
+            'email': 'Email Address',
             'password1':'Password',
             'password2':'Password Confirmation'
         }
+
 
 class EditProfileForm(ModelForm):
     class Meta:

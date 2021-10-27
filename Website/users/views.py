@@ -50,8 +50,10 @@ class SignUpView(View):
         form = CreateUserForm(request.POST)
         if form.is_valid():
             form.save()
+            new_user = authenticate(username = form.cleaned_data['username'], password = form.cleaned_data['password1'])
+            login(request, new_user)
             messages.success(request, 'You Registered Successfully')
-            return redirect('homepage')
+            return HttpResponseRedirect(reverse('edit-profile', args = [new_user.profile.slug]))
         else:
             return render(request, 'users/sign-up.html', {'form':form})
 
