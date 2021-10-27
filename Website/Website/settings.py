@@ -37,6 +37,7 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     'blog.apps.BlogConfig',
     'users.apps.UsersConfig',
+    'ckeditor',
     'bootstrap5',
     'crispy_forms',
     'django.contrib.admin',

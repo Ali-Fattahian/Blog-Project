@@ -203,3 +203,7 @@ class UpdatePostView(View):
         else:
             context = {'form':form, 'post':post}
             return render(request, 'blog/update-post.html', context)
+
+
+def get_about_page(request):
+    return render(request, 'blog/about.html')
