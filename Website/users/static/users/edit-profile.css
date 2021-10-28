@@ -13,6 +13,8 @@ a {
 
 .edit-profile {
     width: 100vw;
+    height: 100vh;
+    min-width: 495px;
 }
 
 .edit-profile__header {
@@ -131,3 +133,4 @@ a {
         grid-template-columns: 1fr;
     }
 }
+
