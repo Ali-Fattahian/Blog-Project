@@ -137,14 +137,19 @@ EMAIL_HOST_PASSWORD = 'zrhkD7bVNx2F'
 
 STATIC_URL = '/static/'
 
+STATICFILES_DIRS = [
+    BASE_DIR / 'static'
+]
+
+STATIC_ROOT = BASE_DIR / 'staticfiles'
+
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-STATICFILES_DIRS = [
-    BASE_DIR / 'static'
-]
+
 
 MEDIA_URL  = '/media/'
 MEDIA_ROOT = BASE_DIR / 'uploads'
