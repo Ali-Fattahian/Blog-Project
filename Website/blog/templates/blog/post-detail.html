@@ -8,9 +8,6 @@
 
 {% block css %}
 <link rel = 'stylesheet' href = '{% static 'blog/post-detail.css' %}'>
-{% comment %} <link rel="stylesheet" media = "screen and (min-width:651px) and (max-width:768px)" href="{% static 'blog/tablet.css' %}">
-<link rel="stylesheet" media = "screen and (min-width:501px) and (max-width:650px)" href="{% static 'blog/mini-tablet.css' %}">
-<link rel="stylesheet" media = "screen and (max-width:500px)" href="{% static 'blog/smartphone.css' %}"> {% endcomment %}
 {% endblock %}
 
 {% block content %}
@@ -39,11 +36,11 @@
                 </form>
             </div>
             <article class = "article">
-                <img src = "{{ one_post.image.url }}" alt = '{{ one_post.title }}'> <!--add filter(after the quotations) will add the value of the key 'image' after the slash-->
+                <img src = "{{ one_post.image.url }}" alt = '{{ one_post.title }}'>
             </article>
             <div class="address">
                 <address>By <a href = 'mailto:{{post.author.email_address}}'>{{ one_post.author }}</a></address>
-                <div class="time">Last Updated on <time>{{ one_post.date|date:'d M Y'}}</time></div> <!-- one of the several ways of foramting the date-->
+                <div class="time">Last Updated on <time>{{ one_post.date|date:'d M Y'}}</time></div>
             </div>
         </section>
 
@@ -55,8 +52,8 @@
             </div>
         {% endif %}
         <main>
-            {{ one_post.content|linebreaks }} <!--we can use the value of the key content from one_post variable that we passed via context of the function related to this template-->
-        </main>                     <!--in the above line, all the linebreaks were removed(default behavior), so we can use linebreak filter to add them again-->
+            {{ one_post.content|linebreaks }} 
+        </main>                     
         <section id = "comments">
             <ul>
                 {% for comment in comments %}

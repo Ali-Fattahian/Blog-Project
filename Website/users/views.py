@@ -1,12 +1,13 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from django.contrib.auth import login, logout, authenticate
-from django.urls import reverse
 from django.http import HttpResponseRedirect
+from django.urls import reverse
+from django.contrib.auth import login, logout, authenticate
+from django.views import View
 from django.contrib import messages
 from django.contrib.auth.models import User
-from django.views import View
 from .models import Profile
 from .forms import CreateUserForm, EditProfileForm
+
 
 class LoginView(View):
     def get(self, request):
@@ -35,10 +36,14 @@ class LoginView(View):
                 messages.warning(request, 'Username or password is incorrect')
                 return redirect('sign-in')
 
+#----------------------------------------------------------
+
 def logout_view(request):
     logout(request)
     messages.success(request, 'You have logged out successfully')
     return redirect('homepage')
+
+#----------------------------------------------------------
 
 class SignUpView(View):
     def get(self, request):
@@ -57,6 +62,7 @@ class SignUpView(View):
         else:
             return render(request, 'users/sign-up.html', {'form':form})
 
+#----------------------------------------------------------
 
 class EditProfileView(View):
     def get(self, request, slug):
@@ -77,8 +83,10 @@ class EditProfileView(View):
             messages.warning(request, 'Something Went Wrong!')
             return render(request, 'users/edit-profile.html', context)
 
+#----------------------------------------------------------
 
 def user_profile(request, username):
     user = get_object_or_404(User, username = username)
     context = {'user':user}
     return render(request, 'users/profile.html', context)
+    
