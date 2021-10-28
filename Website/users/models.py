@@ -6,7 +6,7 @@ class Profile(models.Model):
     first_name = models.CharField(max_length=100, null = True, blank = True)
     last_name = models.CharField(max_length=150, null = True, blank = True)
     slug = models.SlugField(default='user-slug-field', editable=False)
-    email = models.EmailField(null = True, blank = True)
+    email = models.EmailField()
     user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='profile')
     social_facebook = models.URLField(null = True, blank = True)
     social_whatsapp = models.URLField(null = True, blank = True)

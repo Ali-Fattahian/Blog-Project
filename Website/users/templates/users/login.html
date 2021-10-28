@@ -25,7 +25,10 @@
                 <label for="password">Password</label>
                 <input type="password" name="password" id="password" placeholder="Enter Your Password">
             </div>
-            <button type="submit">Log In</button>
+            <div class="submit-reset-password">
+                <button type="submit">Log In</button>
+                <a href="{% url 'reset_password' %}">Forgot Your Password?</a>
+            </div>
             <section class="register-section">
                 <h5>Don't Have An Account?</h5>
                 <h5><a href="{% url 'sign-up' %}" class="forward-sign-up">Sign Up</a></h5>
