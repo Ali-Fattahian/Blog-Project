@@ -16,6 +16,7 @@
                 {% csrf_token %}
                 <h1>Edit The Post</h1>
                 {% for field in form %}
+                    {{ form.media }}
                     <div class="form-field__section">
                         <label for="{{ field.name }}">{{ field.label|title }}</label>
                         {{ field }}

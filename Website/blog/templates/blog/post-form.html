@@ -16,6 +16,7 @@ Add|Edit a post
                 {% csrf_token %}
                 <h1>Add A New Post</h1>
                 {% for field in form %}
+                    {{ form.media }}
                     <div class="form-field__section">
                         <label for="{{ field.name }}">{{ field.label|title }}</label>
                         {{ field }}

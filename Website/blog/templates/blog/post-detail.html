@@ -52,7 +52,8 @@
             </div>
         {% endif %}
         <main>
-            {{ one_post.content|linebreaks }} 
+            {% comment %} {{ one_post.content|linebreaks }}  {% endcomment %}
+            {{ one_post.content|safe }}
         </main>                     
         <section id = "comments">
             <ul>

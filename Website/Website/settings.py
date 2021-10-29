@@ -38,8 +38,7 @@ INSTALLED_APPS = [
     'blog.apps.BlogConfig',
     'users.apps.UsersConfig',
     'ckeditor',
-    'bootstrap5',
-    'crispy_forms',
+    'ckeditor_uploader',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -154,4 +153,13 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 MEDIA_URL  = '/media/'
 MEDIA_ROOT = BASE_DIR / 'uploads'
 
-CRISPY_TEMPLATE_PACK = 'bootstrap4'
+CKEDITOR_UPLOAD_PATH = 'ckeditor-uploads/'
+
+CKEDITOR_CONFIG = {
+    'default':{
+        'toolbar':'full',
+        'height':300,
+        'width':'100%'
+    }
+}
+
