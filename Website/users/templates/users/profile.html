@@ -32,11 +32,11 @@
                     <div class="info-name">
 
                         {% if user.profile.first_name and not user.profile.last_name %}
-                            <h5>{{ user.profile.first_name }} Last name</h5>
+                            <h5>{{ user.profile.first_name }}</h5>
                         {% elif user.profile.last_name and not user.profile.first_name %}
-                            <h5>First name {{ user.profile.last_name }}</h5>
+                            <h5> {{ user.profile.last_name }}</h5>
                         {% elif not user.profile.last_name and not user.profile.first_name %}
-                            <h5>Full name</h5>
+                            <h5>Username : </h5>
                         {% elif user.profile.first_name and user.profile.last_name %}
                             <h5>{{ user.profile.first_name }} {{ user.profile.last_name }}</h5>
                         {% endif %}
