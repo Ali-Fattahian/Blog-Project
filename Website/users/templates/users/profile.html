@@ -15,11 +15,17 @@
         <div class="user-profile__container">
             <section class="user-profile">
                 <div class="user-profile__picture">
+                {% if user.profile.profile_picture %}
                     <img src="{{ user.profile.profile_picture.url }}" alt="{{ user.username }} Profile Picture">
+                {% else %}
+                    <img src="https://res.cloudinary.com/df2vyrbdr/image/upload/v1635679583/default_user_image_lwehod.png" alt="{{ user.username }} Profile Picture">
+                {% endif %}
                 </div>
                 <div class="user-profile__bio">
                     <p>
+                        {% if user.profile.bio %}
                         {{ user.profile.bio }}
+                        {% endif %}
                     </p>
                 </div>
                 <div class="user-profile__info">

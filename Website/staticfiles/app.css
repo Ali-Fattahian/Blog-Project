@@ -116,6 +116,10 @@ a {
   right: 10%;
 }
 
+#cke_id_content {
+  width: 100% !important;
+}
+
 @media screen and (max-width: 920px) and (min-width: 321px) {
   .nav-container {
     padding: 0 2rem;

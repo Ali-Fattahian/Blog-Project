@@ -7,13 +7,13 @@ from django.db import migrations
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('blog', '0004_alter_post_image'),
+        ('users', '0011_alter_profile_profile_picture'),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='post',
-            name='image',
+            model_name='profile',
+            name='profile_picture',
             field=cloudinary.models.CloudinaryField(blank=True, max_length=255, null=True, verbose_name='image'),
         ),
     ]

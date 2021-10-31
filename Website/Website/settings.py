@@ -13,8 +13,11 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 from pathlib import Path
 import os
 from dotenv import load_dotenv
+import cloudinary
+import cloudinary.uploader
+import cloudinary.api
 
-load_dotenv()#hiding SECRET_KEY
+load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -45,6 +48,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'cloudinary',
+    'cloudinary_storage'
 ]
 
 MIDDLEWARE = [
@@ -86,11 +91,11 @@ WSGI_APPLICATION = 'Website.wsgi.application'
 DATABASES = {
    'default': {
        'ENGINE': 'django.db.backends.postgresql',
-       'NAME': 'blog_project',
-       'USER': 'postgres',
-       'PASSWORD': 'a53222235',
-       'HOST': 'localhost',
-       'PORT': '5432',
+       'NAME': os.getenv('DATABASES_POSTGRES_NAME'),
+       'USER': os.getenv('DATABASES_POSTGRES_USER'),
+       'PASSWORD': os.getenv('DATABASES_POSTGRES_PASSWORD'),
+       'HOST': os.getenv('DATABASES_POSTGRES_HOST'),
+       'PORT': os.getenv('DATABASES_POSTGRES_PORT'),
    }
 }
 
@@ -129,10 +134,10 @@ USE_TZ = True
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_PORT = 587
+EMAIL_PORT = os.getenv('BLOG_EMAIL_PORT')
 EMAIL_USE_TLS = True
-EMAIL_HOST_USER = 'techietweed@gmail.com'
-EMAIL_HOST_PASSWORD = 'zrhkD7bVNx2F'
+EMAIL_HOST_USER = os.getenv('BLOG_EMAIL_HOST')
+EMAIL_HOST_PASSWORD = os.getenv('BLOG_EMAIL_HOST_PASSWORD')
 
 
 # Static files (CSS, JavaScript, Images)
@@ -159,11 +164,27 @@ MEDIA_ROOT = BASE_DIR / 'uploads'
 
 CKEDITOR_UPLOAD_PATH = 'ckeditor-uploads/'
 
-CKEDITOR_CONFIG = {
-    'default':{
-        'toolbar':'full',
-        'height':300,
-        'width':'100%'
-    }
+CKEDITOR_CONFIGS = {
+   'default': {
+       'toolbar_Full': [
+            ['Styles', 'Format', 'Bold', 'Italic', 'Underline', 'Strike', 'SpellChecker', 'Undo', 'Redo'],
+            ['Link', 'Unlink', 'Anchor'],
+            ['Image', 'Flash', 'Table', 'HorizontalRule'],
+            ['TextColor', 'BGColor'],
+            ['Smiley', 'SpecialChar'], ['Source'],
+            ['JustifyLeft','JustifyCenter','JustifyRight','JustifyBlock'],
+            ['NumberedList','BulletedList'],
+            ['Indent','Outdent'],
+            ['Maximize'],
+        ],
+        'extraPlugins': 'justify,liststyle,indent',
+   },
 }
 
+CLOUDINARY_STORAGE = {
+    'CLOUD_NAME': os.getenv('CLOUDINARY_CLOUD_NAME'),
+    'API_KEY': os.getenv('CLOUDINARY_API_KEY'),
+    'API_SECRET': os.getenv('CLOUDINARY_API_SECRET')
+}
+
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'

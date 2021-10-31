@@ -4,6 +4,7 @@ from django.db import models
 from django.db.models.fields import CharField
 from django.core.validators import MinLengthValidator
 from ckeditor_uploader.fields import RichTextUploadingField
+from cloudinary.models import CloudinaryField
 
 class Tag(models.Model):
     caption = CharField(max_length= 50, null = True)
@@ -15,7 +16,7 @@ class Tag(models.Model):
 class Post(models.Model):
     title = models.CharField(max_length = 50)
     excerpt = models.CharField(max_length= 200)
-    image = models.ImageField(upload_to = 'posts', null = True, default = 'posts/default_post_image.jpg')
+    image = CloudinaryField('Post Cover Image', blank = True, null = True)
     date = models.DateField(auto_now = True)
     date_created = models.DateTimeField(auto_now_add=True)
     slug = models.SlugField(unique=True) 

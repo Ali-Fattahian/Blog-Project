@@ -34,7 +34,7 @@
                                 {{ request.user.username }}
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="{% url 'profile' request.user.profile.slug %}">Profile</a>
+                                <a class="dropdown-item" href="{% url 'profile' request.user.username %}">Profile</a>
                                 {% for group in request.user.groups.all %}
                                 {% if group.name == 'trusted_users' %}
                                     <a class="dropdown-item" href="{% url 'add-new-post' %}">Add a new post</a>

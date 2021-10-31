@@ -114,6 +114,10 @@ a {
     background-color: transparent;
 }
 
+#profile_picture-clear_id {
+    height: 30px;
+}
+
 .save-changes {
     padding: .7rem 1.8rem;
     background-color: var(--btn-color);

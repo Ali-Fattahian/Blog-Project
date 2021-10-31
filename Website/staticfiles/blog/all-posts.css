@@ -148,14 +148,14 @@ ul {
 
 .pagination-item a {
   /* color: #e7e7e7; */
-  color: #5706c0;
+  color: var(--secondary-color);
   text-decoration: none;
   padding: 0.5rem 1rem;
   background: transparent;
 }
 
 .page-link {
-  color: #5706c0;
+  color: var(--secondary-color);
   text-decoration: none;
   padding: 0.5rem 1rem;
 }

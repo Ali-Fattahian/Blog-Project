@@ -7,7 +7,11 @@
 {% block css %}
     <style>
         .newest-post {
+            {% if latest_post.image %}
             background-image: url("{{ latest_post.image.url }}");
+            {% else %}
+            background-image: url("https://res.cloudinary.com/df2vyrbdr/image/upload/v1635679899/default_post_image_apkr1g.jpg")
+            {% endif %}
             position: relative;
             top: 10%;
             background-position: center;
@@ -27,7 +31,11 @@
             </p>
             <div class="meta-readmore">
                 <div class="meta">
-                    <img src="{{ latest_post.author.profile.profile_picture.url }}" alt="{{ latest_post.author.username }}" class="newest-post__author-picture">
+                    {% if latest_post.author.profile.profile_picture %}
+                        <img src="{{ latest_post.author.profile.profile_picture.url }}" alt="{{ latest_post.author.username }}" class="newest-post__author-picture">
+                    {% else %}
+                        <img src="https://res.cloudinary.com/df2vyrbdr/image/upload/v1635679583/default_user_image_lwehod.png" alt="{{ latest_post.author.username }}" class="newest-post__author-picture">
+                    {% endif %}
                     <div class="author-date">
                         <h6><a href="{% url 'profile' latest_post.author.username %}">{{ latest_post.author.username }}</a></h6>
                         <small>{{ latest_post.date_created }}</small>

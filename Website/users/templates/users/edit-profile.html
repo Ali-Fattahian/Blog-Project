@@ -14,7 +14,11 @@
         <div class="edit-profile__header">
             <div class="edit-profile__header-content">
                 <div class="img-container">
+                {% if profile.profile_picture %}
                     <img src="{{ profile.profile_picture.url }}" alt="{{ profile.user.username }} Profile Picture">
+                {% else %}
+                    <img src="https://res.cloudinary.com/df2vyrbdr/image/upload/v1635679583/default_user_image_lwehod.png" alt="{{ profile.user.username }} Profile Picture">
+                {% endif %}
                 </div>
                 <a href="{% url 'profile' profile.user.username %}">{{ profile.user.username }}</a>
             </div>
