@@ -41,5 +41,6 @@
 
 #stored-posts a:hover,
 #stored-posts a:active {
-  background-color: #ccc;
+  background-color: var(--btn-color);
+  color: #fff;
 }
