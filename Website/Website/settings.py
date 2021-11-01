@@ -40,7 +40,7 @@ ALLOWED_HOSTS = ['*']
 # Application definition
 
 INSTALLED_APPS = [
-    'blog.apps.BlogConfig',
+    # 'blog.apps.BlogConfig',
     'users.apps.UsersConfig',
     'ckeditor',
     'ckeditor_uploader',
