@@ -92,17 +92,14 @@ WSGI_APPLICATION = 'Website.wsgi.application'
 
 DATABASES = {
    'default': {
-       'ENGINE': 'django.db.backends.postgresql',
-       'NAME': os.getenv('DATABASES_POSTGRES_NAME'),
-       'USER': os.getenv('DATABASES_POSTGRES_USER'),
-       'PASSWORD': os.getenv('DATABASES_POSTGRES_PASSWORD'),
-       'HOST': os.getenv('DATABASES_POSTGRES_HOST'),
-       'PORT': os.getenv('DATABASES_POSTGRES_PORT'),
+       'ENGINE': 'django.db.backends.postgresql_psycopg2',
+       'NAME': os.getenv('HEROKU_DB_NAME'),
+       'USER': os.getenv('HEROKU_USER'),
+       'PASSWORD': os.getenv('HEROKU_PASSWORD'),
+       'HOST': os.getenv('HEROKU_HOST'),
+       'PORT':  '5432',
    }
 }
-
-db_from_env = dj_database_url.config(conn_max_age=600)
-DATABASES['default'].update(db_from_env)
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
