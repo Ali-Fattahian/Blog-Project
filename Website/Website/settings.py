@@ -17,6 +17,7 @@ import cloudinary
 import cloudinary.uploader
 import cloudinary.api
 import dj_database_url
+from decouple import config
 
 load_dotenv()
 
@@ -33,7 +34,7 @@ SECRET_KEY = os.getenv("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'techie-tweed.herokuapp.com']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -91,18 +92,11 @@ WSGI_APPLICATION = 'Website.wsgi.application'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
 DATABASES = {
-   'default': {
-       'ENGINE': 'django.db.backends.postgresql',
-       'NAME': os.getenv('DATABASES_POSTGRES_NAME'),
-       'USER': os.getenv('DATABASES_POSTGRES_USER'),
-       'PASSWORD': os.getenv('DATABASES_POSTGRES_PASSWORD'),
-       'HOST': os.getenv('DATABASES_POSTGRES_HOST'),
-       'PORT': os.getenv('DATABASES_POSTGRES_PORT'),
-   }
+    'default': dj_database_url.config(
+        default=config('DATABASE_URL')
+    )
 }
 
-db_from_env = dj_database_url.config(conn_max_age=600)
-DATABASES['default'].update(db_from_env)
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
