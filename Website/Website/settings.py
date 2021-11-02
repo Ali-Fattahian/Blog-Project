@@ -33,7 +33,7 @@ SECRET_KEY = os.getenv("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'techie-tweed.herokuapp.com']
+ALLOWED_HOSTS = ['0.0.0.0', 'localhost', '127.0.0.1', 'techie-tweed.herokuapp.com']
 
 
 # Application definition
@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
+    'whitenoise.runserver_nostatic',
     'django.contrib.staticfiles',
     'cloudinary',
     'cloudinary_storage'
@@ -93,13 +94,16 @@ WSGI_APPLICATION = 'Website.wsgi.application'
 DATABASES = {
    'default': {
        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-       'NAME': os.getenv('HEROKU_DB_NAME'),
-       'USER': os.getenv('HEROKU_USER'),
-       'PASSWORD': os.getenv('HEROKU_PASSWORD'),
-       'HOST': os.getenv('HEROKU_HOST'),
+       'NAME': os.getenv('DATABASES_POSTGRES_NAME'),
+       'USER': os.getenv('DATABASES_POSTGRES_USER'),
+       'PASSWORD': os.getenv('DATABASES_POSTGRES_PASSWORD'),
+       'HOST': 'localhost',
        'PORT':  '5432',
    }
 }
+
+db_from_env = dj_database_url.config(conn_max_age=600)
+DATABASES['default'].update(db_from_env)
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
