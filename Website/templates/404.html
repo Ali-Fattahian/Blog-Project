@@ -7,12 +7,36 @@ Sorry, Page Not Found!
 
 {% block css %}
     <style>
+        h2, h6 {
+            display: inline-block;
+            margin-top: 2rem;
+        }
+
+        h6 {
+            margin-top: 1.8rem;
+        }
+
         #header {
             position: static;
         }
 
         .nav-container {
             position: static;
+        }
+
+        .button {
+            background-color: var(--btn-color);
+            padding: 0.5rem 1rem;
+            color: var(--secondary-color);
+            transition: all 0.4s ease-in-out;
+            border-radius: 2px;
+        }
+
+        .button:hover,
+        .button:active {
+            text-decoration: none;
+            opacity: 0.9;
+            color: var(--secondary-color);
         }
     </style>
 {% endblock css %}
@@ -21,4 +45,5 @@ Sorry, Page Not Found!
     <h2>
         It Seems Your Requested Page Doesn't Exist.
     </h2>
+    <h6><a href="{% url 'homepage' %}" class="button">Return to the homepage</a></h6>
 {% endblock %}
