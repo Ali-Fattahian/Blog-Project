@@ -49,7 +49,7 @@ class IsAllowedToCreatePost(BasePermission):
 
 
 class IsAllowedToChangePost(BasePermission):
-    """Only allows author of the post to change or delete it"""
+    """Only allows author of the object to change or delete it"""
     def has_object_permission(self, request, view, obj):
         if request.method in SAFE_METHODS:
             return True

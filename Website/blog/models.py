@@ -32,7 +32,10 @@ class Post(models.Model):
         return f'Post Title : {self.title}  |  Post Author : {self.author}'
 
 class Comment(models.Model):
-    user = models.ForeignKey(User, on_delete=models.PROTECT, related_name = 'comment', null=True, blank=True)
+    author = models.ForeignKey(User, on_delete=models.PROTECT, related_name = 'comment', null=True, blank=True)
     comment_content = models.TextField(max_length=400)
     post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name='comments')
     date_created = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        ordering = ['-date_created']
