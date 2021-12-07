@@ -59,7 +59,7 @@ class PostDetailView(View):
         if form.is_valid():
             comment = form.save(commit=False)
             comment.post = post
-            comment.user = user
+            comment.author = user
             comment.save()
             return HttpResponseRedirect(reverse('post', args=[slug]))
         else:

@@ -4,7 +4,7 @@ from .models import Comment, Post
 class CommentForm(forms.ModelForm):
     class Meta:
         model = Comment
-        exclude = ('post', 'user')
+        exclude = ('post', 'author')
         labels = {
             'username':'Your Name',
             'email': 'Your Email',

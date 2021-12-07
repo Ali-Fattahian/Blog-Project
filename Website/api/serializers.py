@@ -5,6 +5,7 @@ class TagSerializer(serializers.ModelSerializer):
     class Meta:
         model = Tag
         fields = ['id', 'caption']
+        # depth = 1 
 
 
 class CommentSerializer(serializers.ModelSerializer):
@@ -22,7 +23,7 @@ class PostSerializer(serializers.ModelSerializer):
     slug = serializers.SlugField(read_only=True)
     author = serializers.ReadOnlyField(source='author.username')
     comments = CommentSerializer(many=True, read_only=True)
-    tag = TagSerializer(many=True, read_only=True)
+    tag = TagSerializer(read_only=True, many=True)
     
     class Meta:
         model = Post

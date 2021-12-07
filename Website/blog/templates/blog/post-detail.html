@@ -59,11 +59,11 @@
             <ul>
                 {% for comment in comments %}
                     <li>
-                        {% if comment.user.profile.profile_picture %}
-                        <img src="{{ comment.user.profile.profile_picture.url }}" class="comment-profile-picture" alt="{{ comment.user.username }}">
+                        {% if comment.author.profile.profile_picture %}
+                        <img src="{{ comment.author.profile.profile_picture.url }}" class="comment-profile-picture" alt="{{ comment.author.username }}">
                         {% endif %}
                         <h2>
-                            <a href="{% url 'profile' comment.user.username %}">{{ comment.user.username }}</a>
+                            <a href="{% url 'profile' comment.author.username %}">{{ comment.author.username }}</a>
                         </h2>
                         <h6>({{ comment.date_created }})</h6>
                         <p>

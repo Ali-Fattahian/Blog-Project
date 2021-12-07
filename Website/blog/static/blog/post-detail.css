@@ -267,6 +267,7 @@ main {
 #comment-form textarea {
   height: 100%;
   width: 100%;
+  padding: .5rem;
 } 
 
 #comment-form button {
