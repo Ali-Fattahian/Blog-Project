@@ -5,8 +5,20 @@
 Sorry, Page Not Found!
 {% endblock %}
 
+{% block css %}
+    <style>
+        #header {
+            position: static;
+        }
+
+        .nav-container {
+            position: static;
+        }
+    </style>
+{% endblock css %}
+
 {% block content %}
     <h2>
-        It Seems Your Requested Page Doesn't Exit.
+        It Seems Your Requested Page Doesn't Exist.
     </h2>
 {% endblock %}
