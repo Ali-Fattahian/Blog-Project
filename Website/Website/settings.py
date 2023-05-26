@@ -22,6 +22,9 @@ from decouple import config
 load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', __file__)
+import django
+django.setup()
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
