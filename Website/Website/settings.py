@@ -32,15 +32,16 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.getenv("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['0.0.0.0', 'localhost', '127.0.0.1', 'techie-tweed.herokuapp.com']
+# ALLOWED_HOSTS = ['0.0.0.0', 'localhost', '127.0.0.1', 'techie-tweed.herokuapp.com']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
 
 INSTALLED_APPS = [
-    # 'blog.apps.BlogConfig',
+    'blog.apps.BlogConfig',
     'users.apps.UsersConfig',
     'ckeditor',
     'ckeditor_uploader',
@@ -53,6 +54,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'cloudinary',
     'cloudinary_storage'
+    'dbbackup',
 ]
 
 MIDDLEWARE = [
@@ -92,17 +94,24 @@ WSGI_APPLICATION = 'Website.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-DATABASES = {
-   'default': {
-       'ENGINE': 'django.db.backends.postgresql_psycopg2',
-       'NAME': os.getenv('DATABASES_POSTGRES_NAME'),
-       'USER': os.getenv('DATABASES_POSTGRES_USER'),
-       'PASSWORD': os.getenv('DATABASES_POSTGRES_PASSWORD'),
-       'HOST': 'localhost',
-       'PORT':  '5432',
-   }
-}
+if not DEBUG:
+    dj_database_url.parse(os.getenv('DATABASE_URL'))
+else:
+    # DATABASES = {
+    # 'default': {
+    #     'ENGINE': 'django.db.backends.postgresql_psycopg2',
+    #     'NAME': os.getenv('DATABASES_POSTGRES_NAME'),
+    #     'USER': os.getenv('DATABASES_POSTGRES_USER'),
+    #     'PASSWORD': os.getenv('DATABASES_POSTGRES_PASSWORD'),
+    #     'HOST': 'localhost',
+    #     'PORT':  '5432',
+    # }
+    # }
+    pass
 
+
+DBBACKUP_STORAGE = 'django.core.files.storage.FileSystemStorage'
+DBBACKUP_STORAGE_OPTIONS = {'location': BASE_DIR / 'backup'}
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
